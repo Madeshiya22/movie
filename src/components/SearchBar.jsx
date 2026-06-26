@@ -1,7 +1,7 @@
     import { useDispatch } from "react-redux";
     import { searchMovies } from "../redux/movieSlice";
     import { useState } from "react";
-    import "../styles/searchBar.scss";
+    import "../styles/SearchBar.scss";
 
     export default function SearchBar() {
     const [query, setQuery] = useState("");

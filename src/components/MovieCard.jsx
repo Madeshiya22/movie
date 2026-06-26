@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addFavorite, removeFavorite } from "../redux/movieSlice";
-import "../styles/movieCard.scss";
+import "../styles/MovieCard.scss";
 
 export default function MovieCard({ movie }) {
   const dispatch = useDispatch();
