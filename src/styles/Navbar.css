@@ -1,0 +1,30 @@
+.navbar {
+  background: #381932;
+  padding: 15px 0;
+}
+.navbar .nav-container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar .logo {
+  color: #FFF3E6;
+  font-size: 22px;
+  font-weight: 600;
+}
+.navbar .menu {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+.navbar .menu li a {
+  text-decoration: none;
+  color: #FFF3E6;
+  font-size: 16px;
+  transition: 0.3s;
+}
+.navbar .menu li a:hover {
+  opacity: 0.7;
+}/*# sourceMappingURL=navbar.css.map */

@@ -1,0 +1,581 @@
+$primary: #141414;
+$secondary: #ffffff;
+$accent: #8B4513;
+$text-secondary: #a0a0a0;
+$dark-overlay: rgba(20, 20, 20, 0.95);
+
+.movie-details {
+  width: 100%;
+  background: $primary;
+  overflow-x: hidden;
+}
+
+/* ==================== NOT FOUND ==================== */
+.not-found {
+  color: $secondary;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+/* ==================== HERO DETAILS SECTION ==================== */
+.hero-details {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 60px;
+
+  .hero-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(20, 20, 20, 0.98) 0%,
+      rgba(20, 20, 20, 0.85) 40%,
+      rgba(20, 20, 20, 0.3) 100%
+    );
+    z-index: 2;
+  }
+
+  .details-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 60px;
+    height: 100%;
+    gap: 60px;
+  }
+
+  .details-left {
+    flex: 1;
+    max-width: 600px;
+
+    .badge {
+      display: inline-block;
+      border: 1px solid $secondary;
+      color: $secondary;
+      padding: 8px 15px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+    }
+
+    .movie-title {
+      font-size: 72px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 30px;
+      color: $secondary;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .movie-metadata {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+
+        .meta-label {
+          background: $accent;
+          color: $secondary;
+          padding: 4px 10px;
+          border-radius: 4px;
+          font-weight: 600;
+        }
+
+        .meta-value {
+          color: $text-secondary;
+          font-weight: 500;
+          letter-spacing: 0.5px;
+        }
+
+        .meta-icon {
+          font-size: 16px;
+        }
+      }
+    }
+
+    .movie-overview {
+      font-size: 16px;
+      line-height: 1.7;
+      color: $text-secondary;
+      margin-bottom: 35px;
+      max-height: 140px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+    }
+
+    .action-buttons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      .btn {
+        padding: 14px 40px;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        &.btn-ticket {
+          background: $accent;
+          color: $secondary;
+
+          &:hover {
+            background: lighten($accent, 10%);
+            box-shadow: 0 8px 20px rgba(139, 69, 29, 0.5);
+            transform: translateY(-2px);
+          }
+        }
+
+        &.btn-play {
+          background: transparent;
+          color: $secondary;
+          border: 2px solid $secondary;
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: $accent;
+            color: $accent;
+          }
+        }
+
+        &.btn-favorite {
+          width: 50px;
+          height: 50px;
+          padding: 0;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.1);
+          color: $secondary;
+          font-size: 20px;
+          justify-content: center;
+
+          &:hover {
+            background: rgba(139, 69, 29, 0.2);
+            color: $accent;
+          }
+
+          &.active {
+            background: $accent;
+            color: $secondary;
+          }
+        }
+      }
+    }
+  }
+
+  .details-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .movie-poster-detail {
+      width: 320px;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(139, 69, 29, 0.3);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 30px 80px rgba(139, 69, 29, 0.5);
+      }
+    }
+  }
+}
+
+/* ==================== CAST SECTION ==================== */
+.cast-section {
+  padding: 60px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  .section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: $secondary;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .cast-carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: $secondary;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+
+      &:hover {
+        background: $accent;
+        border-color: $accent;
+        color: $secondary;
+      }
+
+      &.prev {
+        left: -60px;
+      }
+
+      &.next {
+        right: -60px;
+      }
+    }
+
+    .cast-grid {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 10px 0;
+
+      &::-webkit-scrollbar {
+        height: 4px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: $accent;
+        border-radius: 4px;
+
+        &:hover {
+          background: lighten($accent, 10%);
+        }
+      }
+
+      .cast-member {
+        flex-shrink: 0;
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+        }
+
+        img {
+          width: 140px;
+          height: 140px;
+          object-fit: cover;
+          border-radius: 6px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+          transition: box-shadow 0.3s ease;
+
+          &:hover {
+            box-shadow: 0 8px 20px rgba(139, 69, 29, 0.3);
+          }
+        }
+
+        .cast-name {
+          font-size: 12px;
+          color: $text-secondary;
+          margin-top: 10px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+  .hero-details {
+    height: 600px;
+
+    .details-content {
+      padding: 0 40px;
+      gap: 40px;
+    }
+
+    .details-left {
+      .movie-title {
+        font-size: 50px;
+      }
+
+      .action-buttons {
+        gap: 15px;
+
+        .btn {
+          padding: 12px 30px;
+          font-size: 13px;
+        }
+      }
+    }
+
+    .details-right {
+      .movie-poster-detail {
+        width: 260px;
+        height: 390px;
+      }
+    }
+  }
+
+  .cast-section {
+    padding: 40px;
+
+    .cast-carousel {
+      .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+
+        &.prev {
+          left: -50px;
+        }
+
+        &.next {
+          right: -50px;
+        }
+      }
+
+      .cast-grid {
+        .cast-member {
+          img {
+            width: 120px;
+            height: 120px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-details {
+    height: 500px;
+    margin-bottom: 40px;
+
+    .details-content {
+      padding: 0 25px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .details-left {
+      max-width: none;
+
+      .badge {
+        font-size: 10px;
+        padding: 6px 12px;
+      }
+
+      .movie-title {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      .movie-metadata {
+        gap: 15px;
+        margin-bottom: 20px;
+
+        .meta-item {
+          font-size: 11px;
+        }
+      }
+
+      .movie-overview {
+        font-size: 14px;
+        margin-bottom: 25px;
+        -webkit-line-clamp: 3;
+      }
+
+      .action-buttons {
+        .btn {
+          padding: 10px 24px;
+          font-size: 12px;
+
+          &.btn-favorite {
+            width: 44px;
+            height: 44px;
+          }
+        }
+      }
+    }
+
+    .details-right {
+      display: none;
+    }
+  }
+
+  .cast-section {
+    padding: 30px 20px;
+
+    .cast-carousel {
+      .carousel-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+
+        &.prev {
+          left: -45px;
+        }
+
+        &.next {
+          right: -45px;
+        }
+      }
+
+      .cast-grid {
+        .cast-member {
+          img {
+            width: 100px;
+            height: 100px;
+          }
+
+          .cast-name {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-details {
+    height: 400px;
+
+    .details-content {
+      padding: 0 15px;
+    }
+
+    .details-left {
+      .badge {
+        font-size: 9px;
+        margin-bottom: 15px;
+      }
+
+      .movie-title {
+        font-size: 26px;
+        margin-bottom: 15px;
+      }
+
+      .movie-metadata {
+        gap: 10px;
+        margin-bottom: 15px;
+
+        .meta-item {
+          font-size: 10px;
+        }
+      }
+
+      .movie-overview {
+        font-size: 12px;
+        margin-bottom: 20px;
+        -webkit-line-clamp: 2;
+      }
+
+      .action-buttons {
+        flex-wrap: wrap;
+
+        .btn {
+          flex: 1;
+          min-width: 150px;
+          padding: 10px 15px;
+          font-size: 11px;
+
+          &.btn-favorite {
+            width: 40px;
+            height: 40px;
+            flex: 0 0 auto;
+          }
+        }
+      }
+    }
+  }
+
+  .cast-section {
+    padding: 20px 15px;
+
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .cast-carousel {
+      .carousel-btn {
+        display: none;
+      }
+
+      .cast-grid {
+        gap: 10px;
+
+        .cast-member {
+          img {
+            width: 80px;
+            height: 80px;
+          }
+
+          .cast-name {
+            font-size: 9px;
+          }
+        }
+      }
+    }
+  }
+}
